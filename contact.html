@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { margin: 0; overflow: scroll; }
+        #cube-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Ensure it is behind other content */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+        <h1>Contact Page</h1>
+        <div class="profile-buttons">
+           
+            <button id="button1">Home</button>
+            <button id="button2">Contact</button>
+            <button id="button3">Suggestion</button>
+            <img src="logo.png" alt="Logo" class="logo">
+        </div>
+    </header>
+    <section class="content">
+        <div class="contact-info">
+            <img src="your-photo.jpg" alt="Your Photo" class="profile-photo">
+            <h2>Contact Information</h2>
+            <p>Name: Prince Bhoraniya</p>
+            <p>Email: prince9016673141@gmail.com</p>
+            <p>Address: Morbi , Gujrat</p>
+            <p>Graduation: Atmiya university , Rajkot</p>
+        </div>
+    </section>
+    <div id="cube-container"></div> <!-- Placeholder for the 3D cube -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>
