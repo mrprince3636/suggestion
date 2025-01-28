@@ -1,71 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body { margin: 0; overflow: scroll; }
-        #cube-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Ensure it is behind other content */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tile Shop - Responsive Home</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Logo" class="logo">
-        <h1>Welcome to My Awesome Website</h1>
-        <p>Your one-stop solution for all your needs. Discover our services and products designed to make your life easier.</p>
-        <div class="profile-buttons">
-            <button id="button1">Home</button>
-            <button id="button2">Contact</button>
-            <button id="button3">Suggestion</button>
+  <!-- Header with Navigation -->
+  
+  <header>
+    
+    <div class="logo-container">
+      <img src="Screenshot 2025-01-25 204724.png" alt="Ananta International Logo" class="logo">
+    </div>
+      <div class="menu-container">
+        <div class="menu-button" onclick="toggleMenu()">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
         </div>
-    </header>
-    
-    <section class="content">
-        <h2>About Us</h2>
-        <p>We are dedicated to providing top-notch services and products to our customers. Our team of experts is here to help you achieve your goals.</p>
-    </section>
-    <section class="content">
-        <h2>Our Services</h2>
-        <ul>
-            <li>Service 1: Description of service 1.</li>
-            <li>Service 2: Description of service 2.</li>
-            <li>Service 3: Description of service 3.</li>
-        </ul>
-    </section>
-    <section class="content">
-        <h2>What Our Clients Say</h2>
-        <blockquote>
-            <p>"This is the best service I've ever used!" - Happy Customer</p>
-        </blockquote>
-        <blockquote>
-            <p>"Amazing products and fantastic support!" - Satisfied Client</p>
-        </blockquote>
-    </section>
-    <section class="content">
-        <h2>Contact Us</h2>
-        <p>Email: prince9016673141@gmail.com</p>
-    </section>
-    
-    <footer>
-        <p>© 2024 My Awesome Website. All rights reserved.</p>
-        <nav>
-            <a href="privacy.html">Privacy Policy</a> |
-            <a href="terms.html">Terms of Service</a>
-        </nav>
-    </footer>
-    <div id="cube-container"></div> <!-- Placeholder for the 3D cube -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="script.js"></script>
-    
+        <div class="dropdown-menu" id="dropdown-menu">
+          <a href="home.html">Home</a>
+          <a href="tile-calculator.html">Tile Calculator</a>
+          <a href="packing-details.html">Packing Details</a>
+          <a href="#about">About Us</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Slider -->
+  <div class="slider">
+    <div class="slide active">
+      <img src="Original_Style_Mosaics_Fable_EW-FABMOS_4.jpg" alt="Elegant Tiles">
+      <div class="caption">
+        <h2>Welcome to Ananta International</h2>
+        <p>Explore world-class tiles for every space.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="Porcelain-Tiles.jpg" alt="Stylish Wall Tiles">
+      <div class="caption">
+        <h2>Decorate Your Dream</h2>
+        <p>Bring your vision to life with our tiles.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="Arte 10_ x 10_ Porcelain Patterned Wall & Floor Tile.jpg" alt="Outdoor Tiles">
+      <div class="caption">
+        <h2>Durable and Elegant</h2>
+        <p>Quality that lasts for years.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Us Section -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>
+      Welcome to Ananta International, your trusted partner in premium tiles. Whether designing your dream home or revamping a commercial space, we provide elegant solutions with unmatched craftsmanship.
+    </p>
+  </section>
+
+  <!-- Tile Collection -->
+  <section id="tiles" class="tiles">
+    <h2>Our Tile Collection</h2>
+    <div class="tile-gallery">
+      <div class="tile" data-aos="fade-up">
+        <img src="1.png" alt="Bathroom Tile">
+        <p>Bathroom Tile</p>
+      </div>
+      <div class="tile" data-aos="fade-up" data-aos-delay="100">
+        <img src="2.png" alt="Floor Tile">
+        <p>Floor Tile</p>
+      </div>
+      <div class="tile" data-aos="fade-up" data-aos-delay="200">
+        <img src="Porcelanato Para Cozinha - Aprenda a Escolher [AQUI].jpg" alt="Kitchen Tile">
+        <p>Kitchen Tile</p>
+      </div>
+      <div class="tile" data-aos="fade-up" data-aos-delay="300">
+        <img src="d5260366-c0f2-4c1d-83cd-3a316e711eeb.jpg" alt="Wall Tile">
+        <p>Wall Tile</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <div class="stats-section">
+    <div class="stat">
+      <h1 class="counter" data-target="872">0</h1>
+      <p>Projects Completed</p>
+    </div>
+    <div class="stat">
+      <h1 class="counter" data-target="614">0</h1>
+      <p>Happy Clients</p>
+    </div>
+    <div class="stat">
+      <h1 class="counter" data-target="626">0</h1>
+      <p>Cups Of Coffee</p>
+    </div>
+    <div class="stat">
+      <h1 class="counter" data-target="20">0</h1>
+      <p>Export Countries</p>
+    </div>
+  </div>
+
+  <!-- Contact Us Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>We would love to hear from you! Reach out to us for any queries or collaborations.</p>
+    <div class="contact-info">
+      <div class="contact-item">
+        <img src="pnh.png" alt="Phone">
+        <h3>Call Us</h3>
+        <p>+91 81285 14228</p>
+        <p>+91 84870 14228</p>
+      </div>
+      <div class="contact-item">
+        <img src="mail.png" alt="Email">
+        <h3>Email Us</h3>
+        <p>avi@anantainternational.in</p>
+      </div>
+      <div class="contact-item">
+        <img src="location.jpg" alt="Location">
+        <h3>Visit Us</h3>
+        <p>18, Shivam Plaza, Morbi - 363642</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
 </body>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+      const counters = document.querySelectorAll(".counter");
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const counter = entry.target;
+              const target = +counter.getAttribute("data-target");
+              const increment = target / 100; // Adjust speed
+              let current = 0;
+    
+              const updateCounter = () => {
+                if (current < target) {
+                  current = Math.min(current + increment, target);
+                  counter.innerText = Math.floor(current);
+                  requestAnimationFrame(updateCounter);
+                } else {
+                  counter.innerText = target; // Ensure exact value at the end
+                }
+              };
+    
+              updateCounter();
+              observer.unobserve(counter); // Stop observing after animation
+            }
+          });
+        },
+        { threshold: 0.5 } // Trigger when 50% of the element is visible
+      );
+    
+      counters.forEach(counter => observer.observe(counter));
+    });
+    
+</script>
 </html>
