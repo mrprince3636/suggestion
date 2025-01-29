@@ -5,32 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tile Shop - Responsive Home</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+
 </head>
 <body>
   <!-- Header with Navigation -->
-  
-  <header>
-    
+  <header> 
     <div class="logo-container">
       <img src="Screenshot 2025-01-25 204724.png" alt="Ananta International Logo" class="logo">
     </div>
-      <div class="menu-container">
-        <div class="menu-button" onclick="toggleMenu()">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-        <div class="dropdown-menu" id="dropdown-menu">
-          <a href="home.html">Home</a>
-          <a href="tile-calculator.html">Tile Calculator</a>
-          <a href="packing-details.html">Packing Details</a>
-          <a href="#about">About Us</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
-    </div>
   </header>
-
+  <div class="menu">
+    <a href="#contact" class="m5">Contact</a>
+    <a href="tile-calculator.html" class="m2">Tile Calculator</a>
+    <a href="home.html" class="m1">Home</a>
+  </div>
   <!-- Slider -->
   <div class="slider">
     <div class="slide active">
@@ -70,19 +59,23 @@
     <div class="tile-gallery">
       <div class="tile" data-aos="fade-up">
         <img src="1.png" alt="Bathroom Tile">
-        <p>Bathroom Tile</p>
+        <p>BATHROOM TILE</p>
       </div>
       <div class="tile" data-aos="fade-up" data-aos-delay="100">
         <img src="2.png" alt="Floor Tile">
-        <p>Floor Tile</p>
+        <p>FLOOR TILE</p>
       </div>
       <div class="tile" data-aos="fade-up" data-aos-delay="200">
         <img src="Porcelanato Para Cozinha - Aprenda a Escolher [AQUI].jpg" alt="Kitchen Tile">
-        <p>Kitchen Tile</p>
+        <p>KITCHEN TILE</p>
       </div>
       <div class="tile" data-aos="fade-up" data-aos-delay="300">
         <img src="d5260366-c0f2-4c1d-83cd-3a316e711eeb.jpg" alt="Wall Tile">
-        <p>Wall Tile</p>
+        <p>WALL TILE</p>
+      </div>
+      <div class="tile" data-aos="fade-up" data-aos-delay="300">
+        <img src="images.jpg" alt="Wall Tile">
+        <p>SANITARY ITEMS</p>
       </div>
     </div>
   </section>
@@ -106,6 +99,12 @@
       <p>Export Countries</p>
     </div>
   </div>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/ananta_international/?utm_source=ig_web_button_share_sheet" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://facebook.com/ananta.international.2025?mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook"></i></a>
+</div>
 
   <!-- Contact Us Section -->
   <section id="contact" class="contact">
@@ -121,7 +120,7 @@
       <div class="contact-item">
         <img src="mail.png" alt="Email">
         <h3>Email Us</h3>
-        <p>avi@anantainternational.in</p>
+        <p>info@anantainternational.in</p>
       </div>
       <div class="contact-item">
         <img src="location.jpg" alt="Location">
