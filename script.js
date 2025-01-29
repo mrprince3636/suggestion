@@ -1,80 +1,151 @@
-document.getElementById('button1').addEventListener('click', function() {
-    window.location.href = 'home.html';
-});
+let currentSlide = 0;
+let interval;
 
-document.getElementById('button2').addEventListener('click', function() {
-    window.location.href = 'contact.html';
-});
+const slides = document.querySelectorAll(".slide"); // Cache slides
+const totalSlides = slides.length;
 
-document.getElementById('button3').addEventListener('click', function() {
-    window.location.href = 'suggestion.html';
-});
-// Set up the scene, camera, and renderer
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById('cube-container').appendChild(renderer.domElement);
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    if (i === index) {
+      slide.classList.add("active");
+    }
+  });
 
-// Function to create a cube with random size and color
-function createCube() {
-    const size = Math.random() * 0.5 + 0.1; // Random size between 0.1 and 0.6
-    const geometry = new THREE.BoxGeometry(size, size, size);
-    const color = Math.random() * 0xffffff; // Random color
-    const material = new THREE.MeshStandardMaterial({ color: color });
-    const cube = new THREE.Mesh(geometry, material);
-    
-    // Random initial position
-    cube.position.x = Math.random() * 10 - 5;
-    cube.position.y = Math.random() * 10 - 5;
-    cube.position.z = Math.random() * 10 - 5;
-    
-    scene.add(cube);
-    return cube;
+  // Update active dot
+  updateDots(index);
 }
 
-// Create multiple cubes
-const cubes = [];
-for (let i = 0; i < 50; i++) {
-    cubes.push(createCube());
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  showSlide(currentSlide);
 }
 
-// Add lighting
-const ambientLight = new THREE.AmbientLight(0x404040);
-scene.add(ambientLight);
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  showSlide(currentSlide);
+}
 
-const pointLight = new THREE.PointLight(0xffffff, 1);
-pointLight.position.set(5, 5, 5);
-scene.add(pointLight);
+function updateDots(index) {
+  const dots = document.querySelectorAll(".dot");
+  dots.forEach((dot, i) => {
+    dot.classList.remove("active");
+    if (i === index) {
+      dot.classList.add("active");
+    }
+  });
+}
 
-camera.position.z = 5;
-
-// Function to move cubes based on scroll position
-function moveCubes(scrollPercent) {
-    const sensitivity = 1; // Adjust this value to decrease sensitivity further
-    cubes.forEach(cube => {
-        cube.position.x = (Math.random() - 0.5) * 10 * scrollPercent * sensitivity;
-        cube.position.y = (Math.random() - 0.5) * 10 * scrollPercent * sensitivity;
-        cube.position.z = (Math.random() - 0.5) * 10 * scrollPercent * sensitivity;
+function createDots() {
+  const dotContainer = document.createElement("div");
+  dotContainer.classList.add("dots");
+  slides.forEach((_, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    dot.addEventListener("click", () => {
+      currentSlide = index;
+      showSlide(currentSlide);
     });
+    dotContainer.appendChild(dot);
+  });
+  document.querySelector(".slider").appendChild(dotContainer);
 }
 
-// Listen for scroll events
-window.addEventListener('scroll', () => {
-    const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-    moveCubes(scrollPercent);
+function startSlider() {
+  interval = setInterval(nextSlide, 5000);
+}
+
+function stopSlider() {
+  clearInterval(interval);
+}
+
+// Initialize the slider
+createDots();
+showSlide(currentSlide);
+startSlider();
+
+// Pause slider on hover
+const slider = document.querySelector(".slider");
+slider.addEventListener("mouseover", stopSlider);
+slider.addEventListener("mouseout", startSlider);
+
+// Add navigation buttons
+document.querySelector(".slider").insertAdjacentHTML(
+  "beforeend",
+  `
+  <button class="prev" onclick="prevSlide()">&#10094;</button>
+  <button class="next" onclick="nextSlide()">&#10095;</button>
+  `
+);
+// Initialize AOS
+document.addEventListener("DOMContentLoaded", () => {
+  AOS.init({
+    duration: 1000, // Animation duration in milliseconds
+    once: true, // Animation happens only once
+  });
+});
+document.getElementById('calculator-form').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const length = parseFloat(document.getElementById('length').value);
+  const width = parseFloat(document.getElementById('width').value);
+  const tileSize = parseFloat(document.getElementById('tile-size').value);
+
+  // Calculate the area of the room in square meters
+  const roomArea = length * width;
+
+  // Convert tile size from cm to meters (since room area is in meters)
+  const tileArea = (tileSize / 100) * (tileSize / 100); // area of one tile in square meters
+
+  // Calculate the number of tiles required (round up to the nearest whole tile)
+  const numberOfTiles = Math.ceil(roomArea / tileArea);
+
+  // Display the result
+  document.getElementById('result').innerHTML = `
+    <p>Total Tiles Needed: <strong>${numberOfTiles}</strong></p>
+  `;
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".counter");
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = +counter.getAttribute("data-target");
+          const increment = target / 100; // Adjust speed
+          let current = 0;
+
+          const updateCounter = () => {
+            if (current < target) {
+              current = Math.min(current + increment, target);
+              counter.innerText = Math.floor(current);
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.innerText = target; // Ensure exact value at the end
+            }
+          };
+
+          updateCounter();
+          observer.unobserve(counter); // Stop observing after animation
+        }
+      });
+    },
+    { threshold: 0.5 } // Trigger when 50% of the element is visible
+  );
+
+  counters.forEach(counter => observer.observe(counter));
 });
 
-// Animation loop
-function animate() {
-    requestAnimationFrame(animate);
-    
-    // Rotate each cube
-    cubes.forEach(cube => {
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
-    });
-    
-    renderer.render(scene, camera);
+function toggleMenu() {
+    const menu = document.getElementById("dropdown-menu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
-animate();
+
+// Close the menu if clicked outside
+window.addEventListener("click", function(event) {
+    const menu = document.getElementById("dropdown-menu");
+    if (!event.target.closest(".menu-container")) {
+        menu.style.display = "none";
+    }
+});
