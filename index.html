@@ -1,39 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Website</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body { margin: 0; overflow: hidden; }
-        #cube-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Ensure it is behind other content */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tile Shop - Responsive Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Animated Website</h1>
-        <div class="profile-buttons">
-            <button id="button1">Home</button>
-            <button id="button2">Contact</button>
-            <button id="button3">Suggestion</button>
-        </div>
-    </header>
-    
-    <section class="content">
-        <p>This is a simple animated website example.</p>
-        <button id="animateBtn">Click Me!</button>
-    </section>
-    
-    <div id="cube-container"></div> <!-- Placeholder for the 3D cube -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="script.js"></script>
+  <!-- Header with Navigation -->
+  <header> 
+    <div class="logo-container">
+      <img src="Screenshot 2025-01-25 204724.png" alt="Ananta International Logo" class="logo">
+    </div>
+  </header>
+  <div class="menu">
+    <a href="#contact" class="m5">Contact</a>
+    <a href="tile-calculator.html" class="m2">Tile Calculator</a>
+    <a href="home.html" class="m1">Home</a>
+  </div>
+  <!-- Slider -->
+  <div class="slider">
+    <div class="slide active">
+      <img src="Original_Style_Mosaics_Fable_EW-FABMOS_4.jpg" alt="Elegant Tiles">
+      <div class="caption">
+        <h2>Welcome to Ananta International</h2>
+        <p>Explore world-class tiles for every space.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="Porcelain-Tiles.jpg" alt="Stylish Wall Tiles">
+      <div class="caption">
+        <h2>Decorate Your Dream</h2>
+        <p>Bring your vision to life with our tiles.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="Arte 10_ x 10_ Porcelain Patterned Wall & Floor Tile.jpg" alt="Outdoor Tiles">
+      <div class="caption">
+        <h2>Durable and Elegant</h2>
+        <p>Quality that lasts for years.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Us Section -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>
+      Welcome to Ananta International, your trusted partner in premium tiles. Whether designing your dream home or revamping a commercial space, we provide elegant solutions with unmatched craftsmanship.
+    </p>
+  </section>
+
+  <!-- Tile Collection -->
+  <section id="tiles" class="tiles">
+    <h2>Our Tile Collection</h2>
+    <div class="tile-gallery">
+      <div class="tile" data-aos="fade-up">
+        <img src="1.png" alt="Bathroom Tile">
+        <p>BATHROOM TILE</p>
+      </div>
+      <div class="tile" data-aos="fade-up" data-aos-delay="100">
+        <img src="2.png" alt="Floor Tile">
+        <p>FLOOR TILE</p>
+      </div>
+      <div class="tile" data-aos="fade-up" data-aos-delay="200">
+        <img src="Porcelanato Para Cozinha - Aprenda a Escolher [AQUI].jpg" alt="Kitchen Tile">
+        <p>KITCHEN TILE</p>
+      </div>
+      <div class="tile" data-aos="fade-up" data-aos-delay="300">
+        <img src="d5260366-c0f2-4c1d-83cd-3a316e711eeb.jpg" alt="Wall Tile">
+        <p>WALL TILE</p>
+      </div>
+      <div class="tile" data-aos="fade-up" data-aos-delay="300">
+        <img src="images.jpg" alt="Wall Tile">
+        <p>SANITARY ITEMS</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <div class="stats-section">
+    <div class="stat">
+      <h1 class="counter" data-target="872">0</h1>
+      <p>Projects Completed</p>
+    </div>
+    <div class="stat">
+      <h1 class="counter" data-target="614">0</h1>
+      <p>Happy Clients</p>
+    </div>
+    <div class="stat">
+      <h1 class="counter" data-target="626">0</h1>
+      <p>Cups Of Coffee</p>
+    </div>
+    <div class="stat">
+      <h1 class="counter" data-target="20">0</h1>
+      <p>Export Countries</p>
+    </div>
+  </div>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/ananta_international/?utm_source=ig_web_button_share_sheet" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://facebook.com/ananta.international.2025?mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook"></i></a>
+</div>
+
+  <!-- Contact Us Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>We would love to hear from you! Reach out to us for any queries or collaborations.</p>
+    <div class="contact-info">
+      <div class="contact-item">
+        <img src="pnh.png" alt="Phone">
+        <h3>Call Us</h3>
+        <p>+91 81285 14228</p>
+        <p>+91 84870 14228</p>
+      </div>
+      <div class="contact-item">
+        <img src="mail.png" alt="Email">
+        <h3>Email Us</h3>
+        <p>info@anantainternational.in</p>
+      </div>
+      <div class="contact-item">
+        <img src="location.jpg" alt="Location">
+        <h3>Visit Us</h3>
+        <p>18, Shivam Plaza, Morbi - 363642</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
 </body>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+      const counters = document.querySelectorAll(".counter");
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const counter = entry.target;
+              const target = +counter.getAttribute("data-target");
+              const increment = target / 100; // Adjust speed
+              let current = 0;
+    
+              const updateCounter = () => {
+                if (current < target) {
+                  current = Math.min(current + increment, target);
+                  counter.innerText = Math.floor(current);
+                  requestAnimationFrame(updateCounter);
+                } else {
+                  counter.innerText = target; // Ensure exact value at the end
+                }
+              };
+    
+              updateCounter();
+              observer.unobserve(counter); // Stop observing after animation
+            }
+          });
+        },
+        { threshold: 0.5 } // Trigger when 50% of the element is visible
+      );
+    
+      counters.forEach(counter => observer.observe(counter));
+    });
+    
+</script>
 </html>
